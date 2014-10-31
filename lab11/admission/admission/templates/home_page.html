@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>
+Home Page
+</title>
+</head>
+<body>
+<p>Welcome {{ user_name }}</p>
+<form>
+<button type="submit" formaction="/logout/">Logout</button>
+ </form>
+ <form>
+ Want to see rank base branch prediction <button type="submit" formaction='/rank_based/'>Click Here!</button>
+ </form>
+
+<form>
+<button type="submit" formaction="/updateProfile/">Update Your profile </button>
+</form>
+
+{% if user_name == 'siddharth' %}
+<form method="POST" action="/updatecl/" >{% csrf_token %}
+<input type="hidden" name="update" value="yes">
+<input type="submit" value="Update your College List">
+</form>
+<form method="POST" action="/updaterl/" >{% csrf_token %}
+<input type="hidden" name="update" value="yes">
+<input type="submit" value="Update your Rank List">
+</form>
+{% endif %}
+
+<form method='get' action="/CourseCol/">
+<select  name='college'>
+  <option value="none" >Choose the College</option>
+  <option value="IIT Bhubaneswar">IIT Bhubaneswar</option>
+  <option value="IIT Bombay">IIT Bombay</option>
+  <option value="IIT Delhi">IIT Delhi</option>
+  <option value="IIT Gandhinagar"  >IIT Gandhinagar</option>
+  <option value="IIT Guwahati" >IIT Guwahati</option>
+  <option value="IIT Hyderabad">IIT Hyderabad</option>
+  <option value="IIT Indore" >IIT Indore</option>
+  <option value="IIT Kanpur" >IIT Kanpur</option>
+  <option value="IIT Kharagpur" >IIT Kharagpur</option>
+  <option value="IIT Madras" >IIT Madras</option>
+  <option value="IIT Mandi" >IIT Mandi</option>
+  <option value="IIT Patna"  >IIT Patna</option>
+  <option value="IIT Rajasthan" >IIT Rajasthan</option>
+  <option value="IIT Roorkee">IIT Roorkee</option>
+  <option value="IIT Ropar" >IIT Ropar</option>
+  <option value="ISM Dhanbad"  >ISM Dhanbad</option>
+  <option value="IT BHU" >IT BHU</option>
+</select>
+<input type="submit" value="Predict Branches by College">
+</form>
+
+
+<form method='get' action="/CourseBra/">
+<select  name='branch'>
+  <option value="none" >Choose the Department</option>          
+  <option value='Aerospace Engineering'>Aerospace Engineering</option>
+<option value='Agricultural and Food Engineering'>Agricultural and Food Engineering</option>
+<option value='Applied Geology'>Applied Geology</option>
+<option value='Applied Geophysics'>Applied Geophysics</option>
+<option value='Applied Mathematics'>Applied Mathematics</option>
+<option value='Architecture'>Architecture</option>
+<option value='Biochemical Engineering'>Biochemical Engineering</option>
+<option value='Bioengineering'>Bioengineering</option>
+<option value='Biological Engineering'>Biological Engineering</option>
+<option value='Biological Sciences'>Biological Sciences</option>
+<option value='Biotechnology'>Biotechnology</option>
+<option value='Ceramic Engineering'>Ceramic Engineering</option>
+<option value='Chemical Engineering'>Chemical Engineering</option>
+<option value='Chemical Science and Technology'>Chemical Science and Technology</option>
+<option value='Chemistry'>Chemistry</option>
+<option value='Civil Engineering'>Civil Engineering</option>
+<option value='Computer Science and Engineering'>Computer Science and Engineering</option>
+<option value='Design'>Design</option>
+<option value='Economics'>Economics</option>
+<option value='Electrical Engineering'>Electrical Engineering</option>
+<option value='Electronics and Communication Engin'>Electronics and Communication Engin</option>
+<option value='Electronics and Electrical Communic'>Electronics and Electrical Communic</option>
+<option value='Electronics and Electrical Engineer'>Electronics and Electrical Engineer</option>
+<option value='Electronics Engineering'>Electronics Engineering</option>
+<option value='Energy Engineering'>Energy Engineering</option>
+<option value='Engineering Design'>Engineering Design</option>
+<option value='Engineering Physics'>Engineering Physics</option>
+<option value='Engineering Science'>Engineering Science</option>
+<option value='Environmental Engineering'>Environmental Engineering</option>
+<option value='Exploration Geophysics'>Exploration Geophysics</option>
+<option value='Geological Technology'>Geological Technology</option>
+<option value='Geophysical Technology'>Geophysical Technology</option>
+<option value='Industrial Chemistry'>Industrial Chemistry</option>
+<option value='Industrial Engineering'>Industrial Engineering</option>
+<option value='Instrumentation Engineering'>Instrumentation Engineering</option>
+<option value='Manufacturing Science and Engineeri'>Manufacturing Science and Engineeri</option>
+<option value='Material Science and Technology'>Material Science and Technology</option>
+<option value='Materials Science and Engineering'>Materials Science and Engineering</option>
+<option value='Mathematics and Computing'>Mathematics and Computing</option>
+<option value='Mathematics and Scientific Computin'>Mathematics and Scientific Computin</option>
+<option value='Mechanical Engineering'>Mechanical Engineering</option>
+<option value='Metallurgical and Materials Enginee'>Metallurgical and Materials Enginee</option>
+<option value='Metallurgical Engineering'>Metallurgical Engineering</option>
+<option value='Metallurgical Engineering and Mater'>Metallurgical Engineering and Mater</option>
+<option value='Mineral Engineering'>Mineral Engineering</option>
+<option value='Mining Engineering'>Mining Engineering</option>
+<option value='Mining Machinery Engineering'>Mining Machinery Engineering</option>
+<option value='Mining Safety Engineering'>Mining Safety Engineering</option>
+<option value='Naval Architecture and Ocean Engine'>Naval Architecture and Ocean Engine</option>
+<option value='Ocean Engineering and Naval Archite'>Ocean Engineering and Naval Archite</option>
+<option value='Petroleum Engineering'>Petroleum Engineering</option>
+<option value='Pharmaceutics'>Pharmaceutics</option>
+<option value='Physics'>Physics</option>
+<option value='Polymer Science and Technology'>Polymer Science and Technology</option>
+<option value='Process Engineering with MBA'>Process Engineering with MBA</option>
+<option value='Production and Industrial Engineeri'>Production and Industrial Engineeri</option>
+<option value='Pulp and Paper Engineering'>Pulp and Paper Engineering</option>
+<option value='Quality Engineering Design and Manu'>Quality Engineering Design and Manu</option>
+<option value='Systems Science'>Systems Science</option>
+<option value='Textile Technology'>Textile Technology</option>
+
+   
+
+  </select>
+<input type="submit" value="Predict Branches by Department">
+</form>
+
+
+{% if list %}
+
+<p>{{line1}} </p>
+<p> {{college}}{{branch}}</p> 
+  <tr></tr>
+<table>
+<tr>
+{% if branch %}
+<td>College name</td>
+{% endif %}
+<td>Branch Name </td>
+<td>Course Code</td>
+</tr>
+  <tr></tr>
+{% for a in list %}
+  <tr>
+  {% if branch %}
+  <td>{{a.college_name}}</td>
+  {% endif %}
+  <td>
+  {{a.branch_name}}
+  </td>
+  <td>
+  {{a.code}}
+  </td>
+  </tr>
+  <tr></tr>
+{% endfor %}  
+</table>
+{% endif %}
+
+<br>
+<br>
+<br>
+<br>
+{% if list1 %}
+
+<p>{{line2 }}</p>
+<p> {{a.college}}</p>
+  <tr></tr>
+<table>
+<tr>
+{% if branch %}
+<td>College name</td>
+{% endif %}
+<td>Branch Name </td>
+<td>Course Code</td>
+</tr>
+  <tr></tr>
+{% for a in list1 %}
+  <tr>
+   {% if branch %}
+  <td>{{a.college_name}}</td>
+  {% endif %}
+  <td>
+  {{a.branch_name}}
+  </td>
+  <td>
+  {{a.code}}
+  </td>
+  </tr>
+
+{% endfor %}  
+
+</table>
+{% endif %}
+
+{% if users %}
+  <p>  No. of users logged in now: {{users|length}}</p>
+  {% if users|length >= 2 %}
+    <p> Average of General Rank of logged in users is {{avg}}</p>
+    <p> Standard Deviation of General Rank of logged in users is {{std}}</p>
+  {% endif %}
+{% endif %}
+
+</body>
+</html>

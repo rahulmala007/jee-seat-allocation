@@ -1,0 +1,4 @@
+while read a b
+do
+	echo "if branch=='$b':\n\tclist = course.objects.filter(branch_name__icontains='$b')
+done < newest
