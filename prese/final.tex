@@ -18,7 +18,7 @@
 
 
 % these will be used later in the title page
-\title{Physics Behind the Simulation: A CS251 Report by Group 29}
+\title{JEE Seat Allocation project : A CS251 presentation by Group 29}
 \author{Shubham Jadhav \\
 {\tiny 130050011}  \\
 	{\tiny shubham.j@cse.iitb.ac.in}  \\
@@ -56,18 +56,15 @@
 \begin{frame}
 \frametitle{Introduction}
 \begin{center}
- {\bf The Mini Alarm Snoozer } 
+ {\bf JEE Seat allocation } 
 
 \end{center}
 \vskip 0.5in
 \pause
-We are creating a Rube Goldberg Machine which helps a person to snooze
-the alarm. \\
+We have developed a java program to allocate seats to candidates given their JEE rank and a web application for interacting with the candidate \\
 \pause 
-We have used many components to achieve this like Ball Elevator, Hammers,
-Dominos, Inclined Planes, Pendulums, etc.
-\\\pause
-This report is to give an overview of our project
+
+We made this presentation is to give an overview of our project
  % makes overlay
 
 \end{frame}
@@ -77,98 +74,99 @@ This report is to give an overview of our project
 
 
 
-\section{Body}
-
-\subsection{Newton's Cradle}
-\begin{frame}
-\frametitle{Newton's Cradle}
-{\bf Working of Newton's Cradle\cite{ref_1}}
-\\\pause
-Newton's Cradle work on the machanism of consecutive Collisions.
-\\\pause
-As all the balls are elastic, each collision simply transfer all its energy to the next ball.
-\pause\\
-So in final, energy is transferred to the final ball and it continues.
-\pause\\
-\begin{center}
-{\bf Momemtum Conservation Law}
-\end{center}
-\begin{equation} m_1 u_{1} + m_2 u_{2} = m_1 v_{1} + m_2 v_{2}  \end{equation} 
-\\
-where $m_1$ ,$m_2$ are the masses and $u_1$,$u_2$,$v_1$,$v_2$ are the initial and final velocities of two bodies.
-\begin{center}
-\includegraphics[width = 1.0in]{1.png}
-\end{center}
-\end{frame}
-
-
-
-\subsection{Ball Elevator}
-\begin{frame}
-\frametitle{Ball Elevator}
-{\bf Mechanism of ball Elevator}
-\\
-\pause
-When the Newton's Cradle gives the ball to this machine, the Cross parts of this machine will coordinate with each and move the ball up.
-\pause
-\\The speed with which the rod will hit the ball depends on the angular velocity of rod and its length.
+\section{Java praograms}
+\subsection {Goal}
+\begin {frame}
+\frametitle{Goal}
 \pause
 \\
-\begin{minipage}{0.4\linewidth}
-\hspace{1cm} \includegraphics[height=4cm, width = 0.5in]{2.png}
-\end{minipage}%
-\begin{minipage}{0.6\linewidth}
-\begin{equation} v=r\omega \end{equation}
-where $v$ is speed of end of rod, $r$ is the length of rod and $\omega$ is the angular velocity of rod.
-\end{minipage}
+\begin{itemize}
+\item {\bf Fairness : } Suppose candidate x is allotted program p. Then for any other candidate y such that y has a better (smaller) rank than candidate x in the merit list of p, the allocation of y should be p or some other program that y prefers to p.
+\pause
+\item {\bf Optimality :} For any candidate x, there does not exist any other allocation that satisfies the Fairness property, and provides x with an allocation she prefers to μ(x).
+\end{itemize}
 \end{frame}
 
-
-\subsection{Chain of Hammers}
+\subsection {Modified Gale Shapely Suitable Matching Algorithm}
 \begin{frame}
-\frametitle{Chain of Hammers}
-{\bf Machanism of Chain of Hammers\cite{ref_2}}
-\\\pause The ball will hit the first hammer and transfer momentum to it.
-\\\pause It will swing about its revolute joint and hit the ball below and this goes on.
-
-\pause\\
-As soon as the Pulley will become free,the rock hits the alarm clock and  snooze it.
-\pause\\ 
-\begin{minipage}{0.4\linewidth}
-\hspace{1cm}\includegraphics[width = 1.5in]{hs1.png}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-\begin{equation} m_1u_1=m_1v_1+m_2v_2\end{equation}
-where $m_1$, $m_2$ are the masses of the ball and the hammer respectively, $u_1$ is initial linear velocity and $v_1,v_2$ are final velocities.
-\end{minipage}
+\frametitle{Modiefied Gale Shapely Suitable Matching Algorithm}
+{\bf Working of Modiefied Gale Shapely Suitable Matching Algorithm \cite{ref_1}}
+\\
+\pause
+The origin of this algorithm was famous stable marriage Problem.
+\\
+\pause
+In 1962, David Gale and Lloyd Shapley proved that, for any equal number of men and women, it is always possible to solve the SMP and make all marriages stable. They presented an algorithm to do so which is known to world now as gale shapely algorithm.
+\\
+\pause
+{\bf Algorithm :}
+\begin {itemize}
+\item Candidates apply (in any order) to the programme of their first preference.
+\pause
+\item After all applications are received; each programme filters applications based on merit list and quota. If the number of applications are less than quota; all candidates are wait-listed. If the number is more than the quota; the top q candidates based on merit list are wait-listed and remaining candidates are rejected.
+\pause
+\item In each subsequent iteration all rejected candidates from the previous iteration apply to the programme of their next preference.
+\pause
+\item The algorithm terminates when either every candidate has been wait-listed by some programme or if candidates have applied to all the programmes in their preference list.
+\pause
+\item In the end we output the wait-lists as the final seat-allotment list.
 \end{frame}
 
-\subsection{Dominos and The Rotating Bat}
+
+\subsection{Merit List Order Allocation}
 \begin{frame}
-\frametitle{Dominos and The Rotating Bat}
-{\bf Machanism of Dominos and The Rotating Bat\cite{ref_3}}
-\\\pause The Rotating Bat hill the ball towards the Dominos.
-\\\pause The ball will hit the first dominoe and transfer momentum to the other Dominos.
-\\\pause This will lead in turn to a chain reaction and at last will move the ball at the far end.
-
-\begin{minipage}{0.4\linewidth}
-%\begin{center} 
-\hspace{1cm}\includegraphics[width = 1.5in]{dom.jpg}
-%\end{center}
-\end{minipage}
-\begin{minipage}{0.4\linewidth}
-%\begin{center} 
-\hspace{2.5cm}\includegraphics[width = 1.5in]{rotb.jpg}
-%\end{center}
-\end{minipage}
-%\begin{minipage}{0.5\linewidth}
-%\begin{equation} m_1u_1=m_1v_1+m_2v_2\end{equation}
-%where $m_1$, $m_2$ are the masses of the ball and the hammer respectively, $u_1$ is initial linear velocity and $v_1,v_2$ are final velocities.
-%\end{minipage}
+\frametitle{Merit List Order Allocation}
+{\bf Algorithm of Merit List Order Allocation\cite{ref_2}
+\pause
+\begin {itemize}
+\item Firstly, the merit list in this case is considered to be the GE merit list, appended by OBC list, appended by SC, ST, GE-PD, OBC-PD, SC-PD, ST-PD. However, a student can appear more than once in this list.
+\pause
+\item We process the candidates in merit list order.
+\pause
+\item For a candidate being considered; we first try to allocate the programme of his highest preference.
+\pause
+\item If a seat (in the correct category quota) is available we allocate that seat and move to the next candidate.
+\pause
+\item If a seat is not available we move to the next preference of the candidate and try to allocate a seat.
+\pause
+\item These steps are repeated for a single candidate until either the candidate is allocated a seat or till all preferences of the candidate have been exhausted.
+\pause
+\item In this manner we iterate over all the candidates in merit list order.
 \end{frame}
 
 
+\section{Web Application}
 
+\begin{frame}
+\frametitle{Web Application}
+\pause
+\\
+This main purpose of this Web application is to interact with the candidate. We have used django\cite{django} framework to develop this app
+\pause
+\\This application enable candidates to do a variety of things which are as follows"
+\pause
+\\
+
+\begin{itemize}
+\item {\bf Sign In : } By default the user id and password are candidate's own Date Of Birth  
+\pause
+\item {\bf Forgot Password : } If a candidate forgot his password. he can always get it back by answering the security questions
+\pause
+\\By default the question is question is about his date of birth 
+\pause
+\item {\bf Update Profile :} After Sign In, user can change their details like userId,password,Security question and answer
+\pause
+\item { \bf Predict branches : } This feature will help candidate to predict the programs which he can take with his JEE rank by analysing past year data in a specified college or department
+\pause
+\\The candidate can also allows him to predict programs of other candidate given their AIR
+\pause
+\item { \bf Provide Preferences : } This feature is provided to him to give his program preference list 
+\item { \bf Super User : } The application also have a concept of super user who can update the Rank list and college Cut off list in databases
+
+
+\end{itemize}
+
+\end{frame}
 
 \section{Conclusion}
 
@@ -177,13 +175,13 @@ where $m_1$, $m_2$ are the masses of the ball and the hammer respectively, $u_1$
 
 \begin{itemize}
 
-\item This tour just scratches the surface.  
+\item This tour just scratches the surface of Our Project.  
 \pause
 
-\item Through this presentation, we just described some of our elements of our project .
+\item Through this presentation, we just described the elements of our project .
 \pause
 
-\item We showed the mechanism behind their working .
+\item For actual experience, you should try our application at once.
 
 \end{itemize}
 
