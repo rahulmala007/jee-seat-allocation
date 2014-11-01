@@ -17,8 +17,11 @@
 
 
 
+
+
+
 % these will be used later in the title page
-\title{JEE Seat Allocation project : A CS251 presentation by Group 29}
+\title{JEE Seat Allocation : A project presentation by Group 29}
 \author{Shubham Jadhav \\
 {\tiny 130050011}  \\
 	{\tiny shubham.j@cse.iitb.ac.in}  \\
@@ -29,7 +32,7 @@
     {\tiny 130050032}  \\
     {\tiny amit@cse.iitb.ac.in}
 }
-\date{October 22, 2014}
+\date{November 1, 2014}
 
 % note: do NOT include a \maketitle line; also note that this title
 % material goes BEFORE the \begin{document}
@@ -39,8 +42,7 @@
 {
 \begin{frame}<beamer> 
 \frametitle{Overview} % make a frame titled "Outline"
- % show TOC and highlight current section
-\tableofcontents[currentsection]
+\tableofcontents[currentsection]  % show TOC and highlight current section
 \end{frame}
 }
 
@@ -56,16 +58,15 @@
 \begin{frame}
 \frametitle{Introduction}
 \begin{center}
- {\bf JEE Seat allocation } 
+ {\bf JEE Seat Allocation } 
 
 \end{center}
 \vskip 0.5in
 \pause
-We have developed a java program to allocate seats to candidates given their JEE rank and a web application for interacting with the candidate \\
+We have developed a java program to allocate seats to candidates given their JEE ranks and a web application for interacting with the candidate \\
 \pause 
 
 We made this presentation is to give an overview of our project
- % makes overlay
 
 \end{frame}
 
@@ -74,12 +75,12 @@ We made this presentation is to give an overview of our project
 
 
 
-\section{Java praograms}
+
+\section{Java pragrams}
 \subsection {Goal}
-\begin {frame}
+\begin{frame}
 \frametitle{Goal}
 \pause
-\\
 \begin{itemize}
 \item {\bf Fairness : } Suppose candidate x is allotted program p. Then for any other candidate y such that y has a better (smaller) rank than candidate x in the merit list of p, the allocation of y should be p or some other program that y prefers to p.
 \pause
@@ -87,20 +88,25 @@ We made this presentation is to give an overview of our project
 \end{itemize}
 \end{frame}
 
+
 \subsection {Modified Gale Shapely Suitable Matching Algorithm}
 \begin{frame}
-\frametitle{Modiefied Gale Shapely Suitable Matching Algorithm}
-{\bf Working of Modiefied Gale Shapely Suitable Matching Algorithm \cite{ref_1}}
-\\
+\frametitle{Modified Gale Shapely Suitable Matching Algorithm}
+\pause
+
 \pause
 The origin of this algorithm was famous stable marriage Problem.
-\\
+
 \pause
 In 1962, David Gale and Lloyd Shapley proved that, for any equal number of men and women, it is always possible to solve the SMP and make all marriages stable. They presented an algorithm to do so which is known to world now as gale shapely algorithm.
-\\
-\pause
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Modified Gale Shapely Suitable Matching Algorithm}
+
 {\bf Algorithm :}
-\begin {itemize}
+\begin{itemize}
 \item Candidates apply (in any order) to the programme of their first preference.
 \pause
 \item After all applications are received; each programme filters applications based on merit list and quota. If the number of applications are less than quota; all candidates are wait-listed. If the number is more than the quota; the top q candidates based on merit list are wait-listed and remaining candidates are rejected.
@@ -108,15 +114,15 @@ In 1962, David Gale and Lloyd Shapley proved that, for any equal number of men a
 \item In each subsequent iteration all rejected candidates from the previous iteration apply to the programme of their next preference.
 \pause
 \item The algorithm terminates when either every candidate has been wait-listed by some programme or if candidates have applied to all the programmes in their preference list.
-\pause
-\item In the end we output the wait-lists as the final seat-allotment list.
+
+\end{itemize}
 \end{frame}
 
 
 \subsection{Merit List Order Allocation}
 \begin{frame}
 \frametitle{Merit List Order Allocation}
-{\bf Algorithm of Merit List Order Allocation
+
 \pause
 \begin {itemize}
 \item Firstly, the merit list in this case is considered to be the GE merit list, appended by OBC list, appended by SC, ST, GE-PD, OBC-PD, SC-PD, ST-PD. However, a student can appear more than once in this list.
@@ -132,6 +138,7 @@ In 1962, David Gale and Lloyd Shapley proved that, for any equal number of men a
 \item These steps are repeated for a single candidate until either the candidate is allocated a seat or till all preferences of the candidate have been exhausted.
 \pause
 \item In this manner we iterate over all the candidates in merit list order.
+\end{itemize}
 \end{frame}
 
 
@@ -140,27 +147,32 @@ In 1962, David Gale and Lloyd Shapley proved that, for any equal number of men a
 \begin{frame}
 \frametitle{Web Application}
 \pause
-\\
-This main purpose of this Web application is to interact with the candidate. We have used django\cite{django} framework to develop this app
-\pause
-\\This application enable candidates to do a variety of things which are as follows"
-\pause
-\\
 
+This main purpose of this Web application is to interact with the candidate. We have used django\cite{django} framework to develop this application.\\
+\pause
+We have used two templates\cite{temp1}\cite{temp2} for making this project,one for login form,one for account pages\\
+\pause
+This application enable candidates to do a variety of things which are as follows:
+\pause
 \begin{itemize}
 \item {\bf Sign In : } By default the user id and password are candidate's own Date Of Birth  
 \pause
 \item {\bf Forgot Password : } If a candidate forgot his password. he can always get it back by answering the security questions
 \pause
-\\By default the question is question is about his date of birth 
-\pause
+By default the question is question is about his date of birth 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
 \item {\bf Update Profile :} After Sign In, user can change their details like userId,password,Security question and answer
 \pause
 \item { \bf Predict branches : } This feature will help candidate to predict the programs which he can take with his JEE rank by analysing past year data in a specified college or department
 \pause
-\\The candidate can also allows him to predict programs of other candidate given their AIR
+The candidate can also allows him to predict programs of other candidate given their AIR
 \pause
 \item { \bf Provide Preferences : } This feature is provided to him to give his program preference list 
+\pause
 \item { \bf Super User : } The application also have a concept of super user who can update the Rank list and college Cut off list in databases
 
 
@@ -168,24 +180,8 @@ This main purpose of this Web application is to interact with the candidate. We 
 
 \end{frame}
 
-\section{Conclusion}
 
-\begin{frame}
-\frametitle{Conclusion}
 
-\begin{itemize}
-
-\item This tour just scratches the surface of Our Project.  
-\pause
-
-\item Through this presentation, we just described the elements of our project .
-\pause
-
-\item For actual experience, you should try our application at once.
-
-\end{itemize}
-
-\end{frame}
 
 \section{Bibliography}
 \begin{frame}
