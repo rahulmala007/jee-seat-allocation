@@ -1,0 +1,106 @@
+Web application:
+For making the web application for providing a interface to the candidates. For this we have used the django framework of python.
+The name of my project is admission. I have made one app in this namely Candidate which have two models "course" and "Candidate". All the function definitions are written in admission/views.py file and all the templates are stored admission/templates folder.We enabled "static" in the project to make use of css and images.The url's are stored in admission/url.py file.The static files are present in static folder.All the data files for the initialising the databases are stored admission/data folder.We have used two templates for the project.One for login form and one for account pages.
+The web application provide the candidates a number of features.
+	-- The project have one Superuser who can initialise the databases.One should not change the username of Superuser, however the password and other details can be changed.
+	-- It have a login page, from one can login to their account.Forgot password feature is also enabled to help someone retrieve their password by asnwering the security question.By default, the question is the What_is_your_date_of_birth? and the answer is his/her date of birth.
+	-- In the home page,we have a options like, feature to predict the colleges which user can get by his rank given the college or branch.
+	-- One can also update his profile by using updateProfile feature.
+	-- By updateProfile feature, candidate can give his/her preferences or remove his/her old preferences.One thing the candidate have to keep in mind is that he fill his preferences by order , he cannot change the order of them. If he have to do so, he needs to remove some preferences and add them in order again.
+	-- It also have a feature to predict rank for some other ranks by the college and branches
+	
+The structure of our project is:
+
+admission
+|-- admission
+|   |-- data
+|   |   |-- combined_data.csv
+|   |   `-- ranklist.csv
+|   |-- __init__.py
+|   |-- __init__.pyc
+|   |-- models.py
+|   |-- __pycache__
+|   |   |-- __init__.cpython-34.pyc
+|   |   |-- settings.cpython-34.pyc
+|   |   |-- urls.cpython-34.pyc
+|   |   |-- views.cpython-34.pyc
+|   |   `-- wsgi.cpython-34.pyc
+|   |-- settings.py
+|   |-- settings.pyc
+|   |-- templates
+|   |   |-- base.html
+|   |   |-- BranchPref.html
+|   |   |-- home_page.html
+|   |   |-- index.html
+|   |   |-- logged_in_user_list.html
+|   |   |-- login_page.html
+|   |   |-- rank_based.html
+|   |   |-- security.html
+|   |   |-- update.html
+|   |   `-- updateProfile.html
+|   |-- urls.py
+|   |-- urls.pyc
+|   |-- views.py
+|   |-- views.pyc
+|   |-- wsgi.py
+|   `-- wsgi.pyc
+|-- Candidate
+|   |-- admin.py
+|   |-- admin.pyc
+|   |-- __init__.py
+|   |-- __init__.pyc
+|   |-- migrations
+|   |   |-- 0001_initial.py
+|   |   |-- 0001_initial.pyc
+|   |   |-- 0002_candidate_dob.py
+|   |   |-- 0002_candidate_dob.pyc
+|   |   |-- 0003_auto_20141101_0245.py
+|   |   |-- 0003_auto_20141101_0245.pyc
+|   |   |-- 0004_auto_20141101_1938.py
+|   |   |-- 0004_auto_20141101_1938.pyc
+|   |   |-- __init__.py
+|   |   |-- __init__.pyc
+|   |   `-- __pycache__
+|   |       |-- 0001_initial.cpython-34.pyc
+|   |       |-- 0002_candidate_dob.cpython-34.pyc
+|   |       |-- 0003_auto_20141101_0245.cpython-34.pyc
+|   |       `-- __init__.cpython-34.pyc
+|   |-- models.py
+|   |-- models.pyc
+|   |-- __pycache__
+|   |   |-- admin.cpython-34.pyc
+|   |   |-- __init__.cpython-34.pyc
+|   |   `-- models.cpython-34.pyc
+|   |-- tests.py
+|   `-- views.py
+|-- db.sqlite3
+|-- manage.py
+`-- static
+    |-- entrar_shadow-pack
+    |   |-- css
+    |   |   `-- style.css
+    |   |-- images
+    |   |   |-- Thumbs.db
+    |   |   `-- user.png
+    |   `-- index.html
+    `-- slickgray
+        |-- images
+        |   |-- background.png
+        |   |-- leftmenu_bottom.png
+        |   |-- leftmenu_link.png
+        |   |-- leftmenu_top.png
+        |   |-- link_background.png
+        |   |-- main_back.png
+        |   |-- main_bottom.png
+        |   |-- main_top.png
+        |   `-- preview.jpg
+        |-- index.html
+        `-- style.css
+
+References:
+http://www.djangobook.com
+https://docs.djangoproject.com/en/1.7/
+http://bryantsmith.com/template/slickgray/
+http://w3layouts.com/entrar-shadow-flat-form-template/
+http://stackoverflow.com
+
