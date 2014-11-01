@@ -16,6 +16,12 @@ body{
 {% block style %}{%endblock%}
 </head>
 <body>
+<br>
+{%if user_name %}
+<div style="color:white;align:center">
+<h4 >Welcome {{user_name}} </h4>
+</div>
+{%endif%}
 {% block body %}{%endblock%}
 </body>
 </html>

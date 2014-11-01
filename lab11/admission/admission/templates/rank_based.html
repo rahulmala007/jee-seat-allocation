@@ -1,15 +1,35 @@
-<html>
-<head>
-<title>
+{%extends "base.html" %}
+
+{%block title%}
 Rank Based Branch predictor
-</title>
-</head>
+{%endblock%}
+{%load static%}
+{%block style %}<link rel="stylesheet" type="text/css" href="{% static "slickgray/style.css" %}"/>{%endblock%}
 
-<body>
 
+{%block body%}
+ 
+ <div id="container">
+ <div id="menu">
+          <ul>
+                        <li class="menuitem"><a  href="/homepage/">Homepage</a></li>
+
+              <li class="menuitem"><a  href="/updateProfile/">Update Your profile </a></li>
+                <li class="menuitem"><a href="/rank_based/">Rank Based prediction</a></li>
+                  <li class="menuitem"><a href="/logout"/>Logout</a></li>
+
+            </ul>
+        </div>
+        
+
+<div id="content">
+<div id="content_top">
 <form method="get" action="/rank_based_College_calc/">
-Category Rank:<input type="text" name="rank" >
-Category:<select  name='category' >
+<table align="left">
+<tr><td>Category Rank</td><td>Category</td><td>College</td></tr>
+<tr>
+<td><input type="text" name="rank" ></td>
+<td><select  name='category' >
 <option value="GEN" >General</option>
 <option value="OBC">OBC</option>
 <option value="SC" >SC</option>
@@ -19,7 +39,9 @@ Category:<select  name='category' >
 <option value="SC-PD" >SC-PD</option>
 <option value="ST-PD" >ST-PD</option>
 </select>
-College:<select  name='college' >
+</td>
+<td>
+<select  name='college' >
   <option value="none" >Choose the College</option>
   <option value="IIT Bhubaneswar"  >IIT Bhubaneswar</option>
   <option value="IIT Bombay" >IIT Bombay</option>
@@ -39,15 +61,24 @@ College:<select  name='college' >
   <option value="ISM Dhanbad"  >ISM Dhanbad</option>
   <option value="IT BHU"  >IT BHU</option>
 </select>
-
-<br>
-<br>
+</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td></td>
+<td>
 <input type="submit" value="predict Branches By College">
+</td>
+</tr>
 </form> 
 
 <form method="get" action="/rank_based_Branch_calc/">
-Category Rank:<input type="text" name="rank" >
-Category:<select  name='category' >
+
+<tr><td>Category Rank</td><td>Category</td><td>Branch</td></tr>
+<tr>
+<td><input type="text" name="rank" ></td>
+<td><select  name='category' >
 <option value="GEN" >General</option>
 <option value="OBC">OBC</option>
 <option value="SC" >SC</option>
@@ -57,93 +88,149 @@ Category:<select  name='category' >
 <option value="SC-PD" >SC-PD</option>
 <option value="ST-PD" >ST-PD</option>
 </select>
-College:<select  name='branch'>
+</td>
+
+<td><select  name='branch'>
   <option value="none" >Choose the Branch</option>          
-  <option value='Aerospace Engineering'>Aerospace Engineering</option>
-<option value='Agricultural and Food Engineering'>Agricultural and Food Engineering</option>
-<option value='Applied Geology'>Applied Geology</option>
-<option value='Applied Geophysics'>Applied Geophysics</option>
-<option value='Applied Mathematics'>Applied Mathematics</option>
-<option value='Architecture'>Architecture</option>
-<option value='Biochemical Engineering'>Biochemical Engineering</option>
-<option value='Bioengineering'>Bioengineering</option>
-<option value='Biological Engineering'>Biological Engineering</option>
-<option value='Biological Sciences'>Biological Sciences</option>
-<option value='Biotechnology'>Biotechnology</option>
-<option value='Ceramic Engineering'>Ceramic Engineering</option>
-<option value='Chemical Engineering'>Chemical Engineering</option>
-<option value='Chemical Science and Technology'>Chemical Science and Technology</option>
-<option value='Chemistry'>Chemistry</option>
-<option value='Civil Engineering'>Civil Engineering</option>
-<option value='Computer Science and Engineering'>Computer Science and Engineering</option>
-<option value='Design'>Design</option>
-<option value='Economics'>Economics</option>
-<option value='Electrical Engineering'>Electrical Engineering</option>
-<option value='Electronics and Communication Engin'>Electronics and Communication Engin</option>
-<option value='Electronics and Electrical Communic'>Electronics and Electrical Communic</option>
-<option value='Electronics and Electrical Engineer'>Electronics and Electrical Engineer</option>
-<option value='Electronics Engineering'>Electronics Engineering</option>
-<option value='Energy Engineering'>Energy Engineering</option>
-<option value='Engineering Design'>Engineering Design</option>
-<option value='Engineering Physics'>Engineering Physics</option>
-<option value='Engineering Science'>Engineering Science</option>
-<option value='Environmental Engineering'>Environmental Engineering</option>
-<option value='Exploration Geophysics'>Exploration Geophysics</option>
-<option value='Geological Technology'>Geological Technology</option>
-<option value='Geophysical Technology'>Geophysical Technology</option>
-<option value='Industrial Chemistry'>Industrial Chemistry</option>
-<option value='Industrial Engineering'>Industrial Engineering</option>
-<option value='Instrumentation Engineering'>Instrumentation Engineering</option>
-<option value='Manufacturing Science and Engineeri'>Manufacturing Science and Engineeri</option>
-<option value='Material Science and Technology'>Material Science and Technology</option>
-<option value='Materials Science and Engineering'>Materials Science and Engineering</option>
-<option value='Mathematics and Computing'>Mathematics and Computing</option>
-<option value='Mathematics and Scientific Computin'>Mathematics and Scientific Computin</option>
-<option value='Mechanical Engineering'>Mechanical Engineering</option>
-<option value='Metallurgical and Materials Enginee'>Metallurgical and Materials Enginee</option>
-<option value='Metallurgical Engineering'>Metallurgical Engineering</option>
-<option value='Metallurgical Engineering and Mater'>Metallurgical Engineering and Mater</option>
-<option value='Mineral Engineering'>Mineral Engineering</option>
-<option value='Mining Engineering'>Mining Engineering</option>
-<option value='Mining Machinery Engineering'>Mining Machinery Engineering</option>
-<option value='Mining Safety Engineering'>Mining Safety Engineering</option>
-<option value='Naval Architecture and Ocean Engine'>Naval Architecture and Ocean Engine</option>
-<option value='Ocean Engineering and Naval Archite'>Ocean Engineering and Naval Archite</option>
-<option value='Petroleum Engineering'>Petroleum Engineering</option>
-<option value='Pharmaceutics'>Pharmaceutics</option>
-<option value='Physics'>Physics</option>
-<option value='Polymer Science and Technology'>Polymer Science and Technology</option>
-<option value='Process Engineering with MBA'>Process Engineering with MBA</option>
-<option value='Production and Industrial Engineeri'>Production and Industrial Engineeri</option>
-<option value='Pulp and Paper Engineering'>Pulp and Paper Engineering</option>
-<option value='Quality Engineering Design and Manu'>Quality Engineering Design and Manu</option>
-<option value='Systems Science'>Systems Science</option>
-<option value='Textile Technology'>Textile Technology</option>
+            <option value="p3">Aerospace Engineering</option>
+            <option value="p4">Aerospace Engineering with M.Tech. in Applied Mechanics with specialization in Biomedical Engineering</option>
+            <option value="p5">Agricultural and Food Engineering</option>
+            <option value="p6">Agricultural and Food Engineering with M.Tech. in any of the listed specializations</option>
+            <option value="p7">Applied Geology</option>
+            <option value="p8">Applied Geophysics</option>
+            <option value="p9">Applied Mathematics</option>
+            <option value="p10">Architecture</option>
+            <option value="p11">Biochemical Engineering</option>
+            <option value="p12">Biochemical Engineering and Biotechnology</option>
+            <option value="p13">Bioengineering with M.Tech in Biomedical Technology</option>
+            <option value="p14">Biological Engineering</option>
+            <option value="p15">Biological Sciences</option>
+            <option value="p16">Biological Sciences and Bioengineering</option>
+            <option value="p17">Biotechnology</option>
+            <option value="p18">Biotechnology and Biochemical Engineering</option>
+            <option value="p19">Ceramic Engineering</option>
+            <option value="p20">Chemical Engineering</option>
+            <option value="p21">Chemical Engineering with M.Tech. in Hydrocarbon Engineering</option>
+            <option value="p22">Chemical Science and Technology</option>
+            <option value="p23">Chemistry</option>
+            <option value="p24">Civil Engineering</option>
+            <option value="p25">Civil Engineering (Infrastructural Civil Engineering)</option>
+            <option value="p26">Civil Engineering with any of the listed specialization</option>
+            <option value="p27">Civil Engineering with M.Tech. in Applied Mechanics in any of the listed specializations</option>
+            <option value="p28">Civil Engineering with M.Tech. in Structural Engineering</option>
+            <option value="p29">Computer Science and Engineering</option>
+            <option value="p30">Design</option>
+            <option value="p31">Economics</option>
+            <option value="p32">Electrical Engineering</option>
+            <option value="p33">Electrical Engineering (Power)</option>
+            <option value="p34">Electrical Engineering with M.Tech in Applied Mechanics with specialization in Biomedical Engineering</option>
+            <option value="p35">Electrical Engineering with M.Tech. in any of the listed specializations</option>
+            <option value="p36">Electrical Engineering with M.Tech. in Communications and Signal Processing</option>
+            <option value="p37">Electrical Engineering with M.Tech. in Information and Communication Technology</option>
+            <option value="p38">Electrical Engineering with M.Tech. in Microelectronics</option>
+            <option value="p39">Electrical Engineering with M.Tech. in Power Electronics</option>
+            <option value="p40">Electronics and Communication Engineering</option>
+            <option value="p41">Electronics and Communication Engineering with M.Tech. in Wireless Communication</option>
+            <option value="p42">Electronics and Electrical Communication Engineering</option>
+            <option value="p43">Electronics and Electrical Communication Engineering with M.Tech. in any of the listed specializations</option>
+            <option value="p44">Electronics and Electrical Engineering</option>
+            <option value="p45">Electronics Engineering</option>
+            <option value="p46">Energy Engineering with M.Tech. in Energy Systems Engineering</option>
+            <option value="p47">Engineering Design (Automotive Engineering)</option>
+            <option value="p48">Engineering Design (Biomedical Design)</option>
+            <option value="p49">Engineering Physics</option>
+            <option value="p50">Engineering Physics with M.Tech. in Engineering Physics with specialization in Nano Science</option>
+            <option value="p51">Engineering Science</option>
+            <option value="p52">Environmental Engineering</option>
+            <option value="p53">Exploration Geophysics</option>
+            <option value="p54">Geological Technology</option>
+            <option value="p55">Geophysical Technology</option>
+            <option value="p56">Industrial Chemistry</option>
+            <option value="p57">Industrial Engineering</option>
+            <option value="p58">Industrial Engineering with M.Tech. in Industrial Engineering and Management</option>
+            <option value="p59">Instrumentation Engineering</option>
+            <option value="p60">Manufacturing Science and Engineering</option>
+            <option value="p61">Manufacturing Science and Engineering with M.Tech. in Industrial Engineering and Management</option>
+            <option value="p62">Material Science and Technology</option>
+            <option value="p63">Materials Science and Engineering</option>
+            <option value="p64">Mathematics and Computing</option>
+            <option value="p65">Mathematics and Scientific Computing</option>
+            <option value="p66">Mechanical Engineering</option>
+            <option value="p67">Mechanical Engineering (Intelligent Manufacturing)</option>
+            <option value="p68">Mechanical Engineering (Product design)</option>
+            <option value="p69">Mechanical Engineering (Thermal Engineering)</option>
+            <option value="p70">Mechanical Engineering with M.Tech. in any of the listed specializations</option>
+            <option value="p71">Mechanical Engineering with M.Tech. in Computer Aided Design and Automation</option>
+            <option value="p72">Mechanical Engineering with M.Tech. in Computer Integrated Manufacturing</option>
+            <option value="p73">Metallurgical and Materials Engineering</option>
+            <option value="p74">Metallurgical and Materials Engineering with M.Tech. in Materials Engineering</option>
+            <option value="p75">Metallurgical and Materials Engineering with M.Tech. in Metallurgical and Materials Engineering</option>
+            <option value="p76">Metallurgical Engineering</option>
+            <option value="p77">Metallurgical Engineering and Materials Science</option>
+            <option value="p78">Metallurgical Engineering and Materials Science with M.Tech. in Ceramics and Composites</option>
+            <option value="p79">Metallurgical Engineering and Materials Science with M.Tech. in Metallurgical Process Engineering</option>
+            <option value="p80">Mineral Engineering</option>
+            <option value="p81">Mineral Engineering with M.Tech in Mineral Engineering</option>
+            <option value="p82">Mineral Engineering with MBA</option>
+            <option value="p83">Mining Engineering</option>
+            <option value="p84">Mining Engineering with M.Tech. in Mining Engineering</option>
+            <option value="p85">Mining Engineering with MBA</option>
+            <option value="p86">Mining Machinery Engineering</option>
+            <option value="p87">Mining Safety Engineering</option>
+            <option value="p88">Naval Architecture and Ocean Engineering</option>
+            <option value="p89">Naval Architecture and Ocean Engineering with M.Tech in Applied Mechanics in any of the listed specializations</option>
+            <option value="p90">Ocean Engineering and Naval Architecture</option>
+            <option value="p91">Petroleum Engineering</option>
+            <option value="p92">Petroleum Engineering with M.Tech in Petroleum Management</option>
+            <option value="p93">Pharmaceutics</option>
+            <option value="p94">Physics</option>
+            <option value="p95">Polymer Science and Technology</option>
+            <option value="p96">Process Engineering with MBA</option>
+            <option value="p97">Production and Industrial Engineering</option>
+            <option value="p98">Pulp and Paper Engineering</option>
+            <option value="p99">Quality Engineering Design and Manufacturing</option>
+            <option value="p100">Systems Science</option>
+            <option value="p101">Textile Technology</option>
 </select>
-
+</td>
+</tr>
+<tr></tr>
 <br>
-<br>
+<tr>
+<td></td>
+<td>
 <input type="submit" value="predict Branches by Department">
+</td>
+</tr>
+
 </form> 
-
-
-
-<form>
-<button type="submit" formaction="/homepage/">Home page </button>
-</form>
+<tr>
+</tr>
+</table>
+</div>
+<div id="content_main">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% if list %}
-
-<p>{{line1}} </p>
-<p> {{college}}{{branch}}</p> 
+<h2>{{line1}} </h2>
+<h3> {{college}}{{branch}}</h3> 
   <tr></tr>
 <table>
 <tr>
 {% if branch %}
-<td>College name</td>
+<td><b>College name</b></td>
 {% endif %}
-<td>Branch Name </td>
-<td>Course Code</td>
+<td><b>Branch Name <b></td>
+<td><b>Course Code</b></td>
 </tr>
   <tr></tr>
 {% for a in list %}
@@ -162,23 +249,22 @@ College:<select  name='branch'>
 {% endfor %}  
 </table>
 {% endif %}
-
 <br>
 <br>
 <br>
 <br>
 {% if list1 %}
 
-<p>{{line2 }}</p>
-<p> {{a.college}}</p>
+<h2>{{line2 }}</h2>
+<h3> {{a.college}}</h3>
   <tr></tr>
 <table>
 <tr>
 {% if branch %}
-<td>College name</td>
+<td><b>College name</b></td>
 {% endif %}
-<td>Branch Name </td>
-<td>Course Code</td>
+<td><b>Branch Name </b></td>
+<td><b>Course Code</b></td>
 </tr>
   <tr></tr>
 {% for a in list1 %}
@@ -199,13 +285,8 @@ College:<select  name='branch'>
 </table>
 
 {% endif %}
-{% if users %}
-  <p>  No. of users logged in now: {{users|length}}</p>
-  {% if users|length >= 2 %}
-    <p> Average of General Rank of logged in users is {{avg}}</p>
-    <p> Standard Deviation of General Rank of logged in users is {{std}}</p>
-  {% endif %}
-{% endif %}
+<br>
 
-</body>
-</html>
+
+{%endblock%}
+</div>

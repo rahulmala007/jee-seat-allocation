@@ -1,24 +1,23 @@
 from django.db import models
-import json
 
 class Candidate(models.Model):
 
 	user_name=models.CharField(max_length=20,default="user")
 	password=models.CharField(max_length=15,default="user")
 
-	question=models.CharField(max_length=100,default="user")
-	answer=models.CharField(max_length=100,default="user")
+	question=models.CharField(max_length=100,default="What_is_Your_Birth_Date?")
+	answer=models.CharField(max_length=100,default="")
 
 	roll_no=models.CharField(max_length=10,default="user")						
 	category=models.CharField(max_length=3,default="user")
 	pdStatus=models.BooleanField(default=False)
 
-	preferences=models.CharField(max_length=1000,default="user")
+	preferences=models.CharField(max_length=1000,default="")
 	def setpreferences(self,x):
-		self.preferences = json.dumps(x)
+		self.preferences = ",".join(x)
 
 	def getpreferences(self):
-		return json.loads(self.preferences)
+		return (self.preferences).split(',')	
 
 	rankGE=models.CharField(max_length=5,default="0")
 	rankOBC=models.CharField(max_length=5,default="0")
@@ -30,7 +29,7 @@ class Candidate(models.Model):
 	rankSTPD=models.CharField(max_length=5,default="0")
 	
 	final_seat=models.CharField(max_length=10,default="0")
-
+	dob=models.CharField(max_length=10,default="01-01-95")
 
 
 	def __str__(self):
