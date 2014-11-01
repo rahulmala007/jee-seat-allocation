@@ -1,0 +1,43 @@
+{%extends "base.html" %}
+
+
+
+{%block meta %}<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >{%endblock%}
+{%load static %}
+{%block style %}<link rel="stylesheet" type="text/css" href="{% static "slickgray/style.css" %}"/>{%endblock%}
+
+
+{%block body%}
+<div id="container">
+        <div id="menu">
+          <ul>
+              <li class="menuitem"><a  href="/homepage/">Homepage</a></li>
+                <li class="menuitem"><a  href="/updateProfile/">Update Your profile </a></li>
+                <li class="menuitem"><a href="/rank_based/">Rank Based prediction</a></li>
+                {% if user_name == 'siddharth' %}
+                <li class="menuitem"><a href="/updatecl/">Update College list</a></li>
+                <li class="menuitem"><a href='/updaterl/'>Update Rank list</a></li>
+                <li class="menuitem"><a href="/logout"/>Logout</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div id="content">
+        
+        
+        <div id="content_top"> 
+{% if clist %}
+<form method="POST" action='/updatebranches/'>{% csrf_token %}
+<table>
+	<tr><td><b>Branch Name</b></td><td ><b>College Name</b></td></tr>
+
+{% for cor in clist %}
+	<tr><td><input type="radio" name='branches' value="{{ cor.code }}">{{cor.branch_name}}</td><td>{{cor.college_name}}</td></tr>
+{%endfor%}
+	<tr><td><input type="submit" value="submit Preferences"></td></tr>
+</table>
+</form>
+
+{%endif%}	
+{%endblock%}
+</div>
+</div>

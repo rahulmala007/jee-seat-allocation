@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<title>
+Login Page
+</title>
+<script>
+function show_form() {
+    document.getElementById("myForm").style.display="block";
+                  // the function returns the product of p1 and p2
+}
+</script>
+</head>
+
+<body>
+
+{{c}}
+	<form action="/login/" method="post">{% csrf_token %}
+	<p>Login ID: <input type='text' name="userID" > </p>
+	<p>Password: <input type='password' name="passwd"></p>
+	<input type="checkbox" name="remember" value="true">Remember Me!<br>
+	<input type="submit" name="login" value="login">
+	</form>
+
+	<button type="submit" onclick="show_form()">Forgot your password,click here! </button>
+
+
+	<form action="/security/" method="post" id="myForm" style="display:none">{% csrf_token %}
+	<p>Give Your login Id: <input type="text" name="id"> </p>
+	<input type="submit" name="submit" value="submit">
+	</form>
+
+
+</body>

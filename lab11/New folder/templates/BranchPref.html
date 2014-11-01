@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+
+<body>
+
+{% if currentpre %}
+	<p> If you want to delete some preferences, check them</p>
+	<form method="POST" action='/deletebranches/'>{% csrf_token %}
+	<table>
+	{% for cor in currentpre %}
+		<tr><td>
+		<input type="checkbox" name='branches' value="{{ cor.code }}">{{cor.branch_name}} </td><td>{{cor.college_name}}</td>
+		</tr>
+	{% endfor %}	
+	<tr><td><input type="submit" value="delete Preferences"></td></tr>
+	</table>
+	</form>
+{% endif %}
+
+
+
+{% if clist %}
+<form method="POST" action='/updatebranches/'>{% csrf_token %}
+<table>
+{% for cor in clist %}
+	<tr><td><input type="radio" name='branches' value="{{ cor.code }}">{{cor.branch_name}}</td><td>{{cor.college_name}}</td></tr>
+{%endfor%}
+	<tr><td><input type="submit" value="submit Preferences"></td></tr>
+</table>
+</form>
+
+{%endif%}	
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>
+Update Your Profile
+</title>
+</head>
+<body>
+<form action="/updateit/" method="post">{% csrf_token %}
+<p> UserId: <input type="text" name="name" value={{ name }} >  </p>
+<p> Password: <input type="password" name="password" value={{ password }} >  </p>
+<p> Security Question: <input type="text" name="question" value={{ question }} >  </p>
+<p> Answer: <input type="text" name="answer" value={{ answer }} >  </p>
+<p>Give Month only in the format of : day [01:31],month[01,12],year[01,99](assuming you were born in 20th century)</p>
+<p> Date of birth : day<input type="text" name="day" value={{ answer }} >month<input type="text" name="month" value={{ answer }} >year<input type="text" name="year" value={{ dob }} >  </p>
+
+<input type="submit" name="submit" value="submit">
+</form>
+
+<form action='/givepref/' method='get'>
+<select  name='college' onchange="this.form.submit()">
+  <option value="none" >Choose the College</option>
+  <option value="IIT Bhubaneswar">IIT Bhubaneswar</option>
+  <option value="IIT Bombay">IIT Bombay</option>
+  <option value="IIT Delhi">IIT Delhi</option>
+  <option value="IIT Gandhinagar"  >IIT Gandhinagar</option>
+  <option value="IIT Guwahati" >IIT Guwahati</option>
+  <option value="IIT Hyderabad">IIT Hyderabad</option>
+  <option value="IIT Indore" >IIT Indore</option>
+  <option value="IIT Kanpur" >IIT Kanpur</option>
+  <option value="IIT Kharagpur" >IIT Kharagpur</option>
+  <option value="IIT Madras" >IIT Madras</option>
+  <option value="IIT Mandi" >IIT Mandi</option>
+  <option value="IIT Patna"  >IIT Patna</option>
+  <option value="IIT Rajasthan" >IIT Rajasthan</option>
+  <option value="IIT Roorkee">IIT Roorkee</option>
+  <option value="IIT Ropar" >IIT Ropar</option>
+  <option value="ISM Dhanbad"  >ISM Dhanbad</option>
+  <option value="IT BHU" >IT BHU</option>
+</select>
+<noscript><input type="submit" value="submit"></noscript>
+</form>
+</body>
+</html>
+
+

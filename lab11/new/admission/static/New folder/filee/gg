@@ -1,0 +1,120 @@
+if branch=='Aerospace Engineering':
+	clist = course.objects.filter(branch_name__icontains='Aerospace Engineering')
+if branch=='Agricultural and Food Engineering':
+	clist = course.objects.filter(branch_name__icontains='Agricultural and Food Engineering')
+if branch=='Applied Geology':
+	clist = course.objects.filter(branch_name__icontains='Applied Geology')
+if branch=='Applied Geophysics':
+	clist = course.objects.filter(branch_name__icontains='Applied Geophysics')
+if branch=='Applied Mathematics':
+	clist = course.objects.filter(branch_name__icontains='Applied Mathematics')
+if branch=='Architecture':
+	clist = course.objects.filter(branch_name__icontains='Architecture')
+if branch=='Biochemical Engineering':
+	clist = course.objects.filter(branch_name__icontains='Biochemical Engineering')
+if branch=='Bioengineering':
+	clist = course.objects.filter(branch_name__icontains='Bioengineering')
+if branch=='Biological Engineering':
+	clist = course.objects.filter(branch_name__icontains='Biological Engineering')
+if branch=='Biological Sciences':
+	clist = course.objects.filter(branch_name__icontains='Biological Sciences')
+if branch=='Biotechnology':
+	clist = course.objects.filter(branch_name__icontains='Biotechnology')
+if branch=='Ceramic Engineering':
+	clist = course.objects.filter(branch_name__icontains='Ceramic Engineering')
+if branch=='Chemical Engineering':
+	clist = course.objects.filter(branch_name__icontains='Chemical Engineering')
+if branch=='Chemical Science and Technology':
+	clist = course.objects.filter(branch_name__icontains='Chemical Science and Technology')
+if branch=='Chemistry':
+	clist = course.objects.filter(branch_name__icontains='Chemistry')
+if branch=='Civil Engineering':
+	clist = course.objects.filter(branch_name__icontains='Civil Engineering')
+if branch=='Computer Science and Engineering':
+	clist = course.objects.filter(branch_name__icontains='Computer Science and Engineering')
+if branch=='Design':
+	clist = course.objects.filter(branch_name__icontains='Design')
+if branch=='Economics':
+	clist = course.objects.filter(branch_name__icontains='Economics')
+if branch=='Electrical Engineering':
+	clist = course.objects.filter(branch_name__icontains='Electrical Engineering')
+if branch=='Electronics and Communication Engin':
+	clist = course.objects.filter(branch_name__icontains='Electronics and Communication Engin')
+if branch=='Electronics and Electrical Communic':
+	clist = course.objects.filter(branch_name__icontains='Electronics and Electrical Communic')
+if branch=='Electronics and Electrical Engineer':
+	clist = course.objects.filter(branch_name__icontains='Electronics and Electrical Engineer')
+if branch=='Electronics Engineering':
+	clist = course.objects.filter(branch_name__icontains='Electronics Engineering')
+if branch=='Energy Engineering':
+	clist = course.objects.filter(branch_name__icontains='Energy Engineering')
+if branch=='Engineering Design':
+	clist = course.objects.filter(branch_name__icontains='Engineering Design')
+if branch=='Engineering Physics':
+	clist = course.objects.filter(branch_name__icontains='Engineering Physics')
+if branch=='Engineering Science':
+	clist = course.objects.filter(branch_name__icontains='Engineering Science')
+if branch=='Environmental Engineering':
+	clist = course.objects.filter(branch_name__icontains='Environmental Engineering')
+if branch=='Exploration Geophysics':
+	clist = course.objects.filter(branch_name__icontains='Exploration Geophysics')
+if branch=='Geological Technology':
+	clist = course.objects.filter(branch_name__icontains='Geological Technology')
+if branch=='Geophysical Technology':
+	clist = course.objects.filter(branch_name__icontains='Geophysical Technology')
+if branch=='Industrial Chemistry':
+	clist = course.objects.filter(branch_name__icontains='Industrial Chemistry')
+if branch=='Industrial Engineering':
+	clist = course.objects.filter(branch_name__icontains='Industrial Engineering')
+if branch=='Instrumentation Engineering':
+	clist = course.objects.filter(branch_name__icontains='Instrumentation Engineering')
+if branch=='Manufacturing Science and Engineeri':
+	clist = course.objects.filter(branch_name__icontains='Manufacturing Science and Engineeri')
+if branch=='Material Science and Technology':
+	clist = course.objects.filter(branch_name__icontains='Material Science and Technology')
+if branch=='Materials Science and Engineering':
+	clist = course.objects.filter(branch_name__icontains='Materials Science and Engineering')
+if branch=='Mathematics and Computing':
+	clist = course.objects.filter(branch_name__icontains='Mathematics and Computing')
+if branch=='Mathematics and Scientific Computin':
+	clist = course.objects.filter(branch_name__icontains='Mathematics and Scientific Computin')
+if branch=='Mechanical Engineering':
+	clist = course.objects.filter(branch_name__icontains='Mechanical Engineering')
+if branch=='Metallurgical and Materials Enginee':
+	clist = course.objects.filter(branch_name__icontains='Metallurgical and Materials Enginee')
+if branch=='Metallurgical Engineering':
+	clist = course.objects.filter(branch_name__icontains='Metallurgical Engineering')
+if branch=='Metallurgical Engineering and Mater':
+	clist = course.objects.filter(branch_name__icontains='Metallurgical Engineering and Mater')
+if branch=='Mineral Engineering':
+	clist = course.objects.filter(branch_name__icontains='Mineral Engineering')
+if branch=='Mining Engineering':
+	clist = course.objects.filter(branch_name__icontains='Mining Engineering')
+if branch=='Mining Machinery Engineering':
+	clist = course.objects.filter(branch_name__icontains='Mining Machinery Engineering')
+if branch=='Mining Safety Engineering':
+	clist = course.objects.filter(branch_name__icontains='Mining Safety Engineering')
+if branch=='Naval Architecture and Ocean Engine':
+	clist = course.objects.filter(branch_name__icontains='Naval Architecture and Ocean Engine')
+if branch=='Ocean Engineering and Naval Archite':
+	clist = course.objects.filter(branch_name__icontains='Ocean Engineering and Naval Archite')
+if branch=='Petroleum Engineering':
+	clist = course.objects.filter(branch_name__icontains='Petroleum Engineering')
+if branch=='Pharmaceutics':
+	clist = course.objects.filter(branch_name__icontains='Pharmaceutics')
+if branch=='Physics':
+	clist = course.objects.filter(branch_name__icontains='Physics')
+if branch=='Polymer Science and Technology':
+	clist = course.objects.filter(branch_name__icontains='Polymer Science and Technology')
+if branch=='Process Engineering with MBA':
+	clist = course.objects.filter(branch_name__icontains='Process Engineering with MBA')
+if branch=='Production and Industrial Engineeri':
+	clist = course.objects.filter(branch_name__icontains='Production and Industrial Engineeri')
+if branch=='Pulp and Paper Engineering':
+	clist = course.objects.filter(branch_name__icontains='Pulp and Paper Engineering')
+if branch=='Quality Engineering Design and Manu':
+	clist = course.objects.filter(branch_name__icontains='Quality Engineering Design and Manu')
+if branch=='Systems Science':
+	clist = course.objects.filter(branch_name__icontains='Systems Science')
+if branch=='Textile Technology':
+	clist = course.objects.filter(branch_name__icontains='Textile Technology')
